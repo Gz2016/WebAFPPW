@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Editar Mora</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ <h1 class="center"><i class="large material-icons left">assignment_ind</i>Editar Mora</h1>
+ <div class="row">
+			<form class="form-horizontal" th:object="${mora}"
+				th:action="@{/crearmora}" method="post">
+				<div class="row">
+				<input type="hidden" th:field="*{cintxmora}" />
+				<div class="input-field col s6">
+				Monto:
+				<input type="text" th:field="*{montointeres}"/>
+				</div>
+				<div class="input-field col s6">
+				Nro Dias:
+				<input type="text" th:field="*{qdias}"  />
+				</div>
+				<div class="input-field col s6">
+				Tasa:
+				<input type="text" th:field="*{qporcentajemora}"/>
+				</div>	
+				</div>		
+				<div class="row">
+				<div class="input-field col s6 center">
+				<button class="btn waves-effect waves-light" type="submit">Guardar
+				 <i class="material-icons right">perm_identity</i></button>
+				
+				</div>
+				 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/moras'" value="Cancel" />
+				</div>
+				 </div>
+				</form>
+		</div>
+</body>
+</html>

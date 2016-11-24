@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<title>Lista de Retiros</title>
+<!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <!--                <form th:action="@{/solicitudes/operador}" method="post">
+   <div class="row">
+       <div class="input-field col s6">
+      Operador:
+      <input type="text" id="id" name="id" width="100"/>
+      </div>
+  <div class="input-field col s6">
+          <button class="btn waves-effect waves-light" type="submit">Buscar Operador
+             <i class="material-icons right">perm_identity</i>
+           </button>
+   </div>
+   </div>
+  </form>                            -->
+  
+  
+  <form th:action="@{/retirobycuenta}" method="post">
+   <div class="row">
+       <div class="input-field col s6">
+      Cuenta:
+      <input type="text" id="id" name="id" width="100"/>
+      </div>
+  <div class="input-field col s6 ">
+          <button class="btn waves-effect waves-light" type="submit">Buscar Retiros
+             <i class="material-icons right">search</i>
+           </button>
+   </div>
+   </div>
+  </form>
+  
+  
+    <form th:action="@{/retirobysolicitud}"  method="post">
+   <div class="row" >
+    <div class="input-field col s6">
+    Solicitud:
+      <input type="text" id="id" name="id" width="100"/>
+   
+      </div>
+      
+  <div class="input-field col s6">
+          <button class="btn waves-effect waves-light" type="submit">Buscar Retiros
+             <i class="material-icons right">search</i>
+           </button>
+   </div>
+   </div>
+  </form>
+  
+  
+  <table>
+        <thead>
+          <tr>
+              <th data-field="id">Codigo</th>
+              <th data-field="montoretiro">Montoretiro</th>
+              <th data-field="fecharetiro">Fecharetiro</th>
+              <th data-field="tipoderetiro">Tipoderetiro</th>
+              <th data-field="cuenta">Cuenta</th>
+              <th data-field="solicitud">Solicitud</th> 
+              <th>Delete</th>       
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="r: ${retiros}">
+          
+            <td th:text="${r.cretiro}"></td>
+            <td th:text="${r.montoretiro}"></td>
+            <td th:text="${r.dretiro}"></td>
+            <td th:text="${r.ntiporetiro}"></td>
+            <td th:text="${r.cuenta.ccuenta}"></td>
+            <td th:text="${r.solicitudretiro.csolicitud}"></td>
+            
+           <td><a th:href="${'/retirosdelete'+r.cretiro}" >Delete</a></td>
+            </tr>
+        </tbody>
+      </table>
+      
+
+ <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+  
+  
+</body>
+</html>

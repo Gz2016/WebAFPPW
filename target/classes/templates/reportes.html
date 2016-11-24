@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Registrar</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ <h1 class="center"><i class="large material-icons left">thumb_up</i>REPORTES</h1>
+ <form>
+   <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesafiliado'" value="Generar Reporte Afiliado" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportescuenta'" value="Generar Reporte Cuenta" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesaporte'" value="Generar Reporte Aporte" />
+				</div>
+     <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesfondo'" value="Generar Reporte Fondo" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesoperador'" value="Generar Reporte Operador" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportessolicitud'" value="Generar Reporte Solicitud" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesretiro'" value="Generar Reporte Retiro" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesmora'" value="Generar Reporte Mora" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesperiodo'" value="Generar Reporte Periodo" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportesempresa'" value="Generar Reporte Empresa" />
+				</div>
+  </form>
+<p th:text="${mensaje1}" style="font-size:36px"></p>
+</body>
+</html>

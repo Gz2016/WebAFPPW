@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<title>Lista de Periodos</title>
+<!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <form th:action="@{/periodosdeaporteporfpago}" method="post">
+   <div class="row">
+       <div class="input-field col s6">
+      Filtro de Cumplimiento:
+      <select class="browser-default" id="fpago" name="fpago">
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+      </select>
+      </div>
+  <div class="input-field col s6">
+          <button class="btn waves-effect waves-light" type="submit">Buscar
+             <i class="material-icons right">search</i>
+           </button>
+   </div>
+   </div>
+  </form>
+  
+   <h1 class="center"><i class="large material-icons left">assignment_ind</i>Lista de Periodos</h1>
+  <table>
+        <thead>
+          <tr>
+              <th data-field="id">Codigo</th>
+              <th data-field="dependiente">Afiliado</th>
+              <th data-field="nombres">Fecha Inicio</th>
+              <th data-field="nombres">Fecha Fin</th>
+              <th data-field="apellidos">Tipo Periodo</th>
+              <th data-field="fechanacimiento">Descripcion</th>
+              <th data-field="dni">¿Pagó?</th>
+              <th data-field="Empresa">¿A Tiempo?</th>
+              
+                         
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="p: ${periodos}">
+            <td th:text="${p.cperiodoaporte}"></td>
+            <td th:text="${p.cafiliado.nnombres + p.cafiliado.napellidos}"></td>
+            <td th:text="${p.dinicio}"></td>
+            <td th:text="${p.dfin}"></td>
+            <td th:text="${p.ntipoperiodo}"></td>
+            <td th:text="${p.tdescripcion}"></td>
+            <td th:text="${p.fpago}"></td>
+            <td th:text="${p.fpagoatiempo}"></td>
+            <td><a th:href="${'/verperiodosdeaporte' + p.cperiodoaporte}">Detalle</a></td>
+		     <td><a th:href="${'/editarperiodosdeaporte' + p.cperiodoaporte}">Editar</a></td>
+           </tr>
+        </tbody>
+      </table>
+ <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+<title>Lista de operadores</title>
+
+<!-- CSS  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<!-- LOGO PRIMA AFP -->
+	
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+<h1 class="center"><i class="large material-icons left">supervisor_account</i>Lista de Operadores</h1>  
+	<!-- FORMULARIO: Listar por nombre -->
+	
+	<form th:action="@{/listoperadorpornombre}" method="post">
+		
+		<div class="row">
+			
+			<div class="input-field col s6">
+				Listar operadores por nombre:
+				<input placeholder="Escribe un nombre..." type="text" id="nnombres" name="nnombres" width="100"/>
+			</div>
+  			
+  			<div class="input-field col s6">
+    	    	<button class="btn waves-effect waves-light" type="submit">Buscar
+    	        	<i class="material-icons right">search</i>
+     	   		</button>
+   			</div>
+   			
+   		</div>
+   		
+  	</form>
+  	
+  	<!-- FORMULARIO: Listar por apellido -->
+	
+	<form th:action="@{/listoperadorporapellidos}" method="post">
+		
+		<div class="row">
+			
+			<div class="input-field col s6">
+				Listar operadores por apellido:
+				<input placeholder="Escribe un apellido..." type="text" id="napellidos" name="napellidos" width="100"/>
+			</div>
+  			
+  			<div class="input-field col s6">
+    	    	<button class="btn waves-effect waves-light" type="submit">Buscar
+    	        	<i class="material-icons right">search</i>
+     	   		</button>
+   			</div>
+   			
+   		</div>
+   		
+  	</form>
+  	
+  	<!-- FORMULARIO: Listar por DNI -->
+	
+	<form th:action="@{/listoperadorpordni}" method="post">
+		
+		<div class="row">
+			
+			<div class="input-field col s6">
+				Listar operadores por DNI:
+				<input placeholder="Escribe un número de DNI..." type="text" id="dni" name="dni" width="100"/>
+			</div>
+  			
+  			<div class="input-field col s6">
+    	    	<button class="btn waves-effect waves-light" type="submit">Buscar
+    	        	<i class="material-icons right">search</i>
+     	   		</button>
+   			</div>
+   			
+   		</div>
+   		
+  	</form>
+
+	<!-- TÍTULO: Lista de operadores -->
+  	
+  	<h1 class="center">Lista de operadores</h1>
+  	
+
+	<!-- TABLA -->
+  	
+  	<table>
+  		
+  		<!-- CABECERAS -->
+  		<thead>
+  			<tr>
+  				<th data-field="coperador">Codigo</th>
+  				<th data-field="nnombres">Nombres</th>
+  				<th data-field="napellidos">Apellidos</th>
+  				<th data-field="dnacimiento">Fecha de nacimiento</th>
+  				<th data-field="dni">DNI</th>
+  			</tr>
+  		</thead>
+  		
+  		<!-- CONTENIDO -->
+  		<tbody>
+  			<tr th:each="o: ${operadores}">
+  				<td th:text="${o.coperador}"></td>
+  				<td th:text="${o.nnombres}"></td>
+  				<td th:text="${o.napellidos}"></td>
+  				<td th:text="${o.dnacimiento}"></td>
+  				<td th:text="${o.dni}"></td>
+  				<td><a th:href="${'/verOperador' + o.coperador}">Ver</a></td>
+		     	<td><a th:href="${'/editarOperador' + o.coperador}">Editar</a></td>
+		     	<td><a th:href="${'/eliminarOperador' + o.coperador}">Eliminar</a></td>
+  			</tr>
+  		</tbody>
+  		
+  	</table>
+  	
+  	<!--  Scripts-->
+  	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script> 
+	
+	
+</body>
+</html>

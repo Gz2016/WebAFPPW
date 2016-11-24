@@ -1,0 +1,48 @@
+package pe.edu.upc.dao.impl;
+
+import java.sql.Connection;
+
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.view.JasperViewer;
+import pe.edu.upc.ds.Dbconexion;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JRException;
+
+public abstract class AbstractJasperReport {
+
+	private static JasperReport report;
+	private static JasperPrint reportFilled;
+	private static JasperViewer viewer;
+	//AbstractJasperReports.createReport(cn,"C:\\Users\\CCM\\Desktop\\templates\\report.jasper");
+	
+	public static void createReport(String path){
+		try{
+			Connection cn = Dbconexion.getInstance();
+			report = (JasperReport) JRLoader.loadObjectFromFile(path);
+			reportFilled=JasperFillManager.fillReport(report, null, cn);
+		}
+		catch(JRException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public static void showViewer(){
+		viewer = new JasperViewer(reportFilled,false);//false para que no se cierre
+		viewer.setVisible(true);
+	}
+	
+	public static void exportToPDF(String destination){
+		try{
+			JasperExportManager.exportReportToPdfFile(reportFilled,destination);
+			//AbstractJasperReport.showViewer();
+			//AbstractJasperReport.exportToPDF("C:\\Users\\CCM\\Desktop\\nuevope\\report.pdf");
+		}
+		catch(JRException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+}

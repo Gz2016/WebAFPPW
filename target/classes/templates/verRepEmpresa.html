@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+		
+	 	<!-- CSS  -->
+	 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	 	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	  
+		<title>Ver representante de empresa</title>
+	</head>
+	<body>
+	
+		<!-- BARRA DE NAVEGACIÓN  -->
+		
+		<nav class="orange lighten-1" role="navigation">
+ 	   	
+ 	   		<div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+         	 
+          		<ul class="right hide-on-med-and-down">
+          			<li><a th:href="@{/afiliados}">Afiliados</a></li>
+          			<li><a th:href="@{/listoperador}">Operadores</a></li>
+          			<li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          			<li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          			<li><a th:href="@{/cuentas}">Cuentas</a></li>
+          			<li><a th:href="@{/aportes}">Aportes</a></li>
+          			<li><a th:href="@{/fondos}">Fondos</a></li>
+          			<li><a th:href="@{/moras}">Moras</a></li>   
+          			<li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          		</ul>
+          
+      	  		<ul id="nav-mobile" class="side-nav">
+          			<li><a th:href="@{/afiliados}">Afiliados</a></li>
+          			<li><a th:href="@{/listoperador}">Operadores</a></li>
+          			<li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          			<li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          			<li><a th:href="@{/cuentas}">Cuentas</a></li>
+          			<li><a th:href="@{/aportes}">Aportes</a></li>
+          			<li><a th:href="@{/fondos}">Fondos</a></li>
+          			<li><a th:href="@{/moras}">Moras</a></li>   
+          			<li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      	  		</ul>
+      	  	
+     	  		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+     	  
+    		</div>
+  
+  		</nav>
+
+		<!-- TÍTULO: Ver representante de empresa  -->
+	
+		<h1 class="center">Ver representante de empresa</h1>
+	
+		<!-- FORMULARIO  -->
+	
+		<div class="row">
+			
+			<form class="col s12" th:object="${rep_empresa}">
+				
+				<div class="input-field col s6">
+					Nombre de la empresa:
+					<input type="text" th:field="*{nempresa}" readonly="readonly"/>
+				</div>
+				
+				<div class="input-field col s6">
+					RUC:
+					<input type="text" th:field="*{ruc}" readonly="readonly"/>
+				</div>
+				
+				<div class="input-field col s6">
+					Nombres del representante:
+					<input type="text" th:field="*{nnombres}" readonly="readonly"/>
+				</div>
+				
+				<div class="input-field col s6">
+					Apellidos del representante:
+					<input type="text" th:field="*{napellidos}" readonly="readonly"/>
+				</div>
+				
+				<div class="input-field col s6">
+					Fecha de nacimiento del representante:
+					<input type="text" th:field="*{dnacimiento}" readonly="readonly"/>
+				</div>
+				
+				<div class="input-field col s6">
+					DNI del representante:
+					<input type="text" th:field="*{dni}" readonly="readonly"/>
+				</div>
+				
+				<div class="input-field col s12 center">
+					<input type="button" class="btn waves-effect waves-light" onclick="location.href='/listRepEmpresas'" value="Volver" />
+				</div>
+				
+			</form>
+			
+		</div>
+		
+		<!--  Scripts-->
+  		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  		<script src="js/materialize.js"></script>
+  		<script src="js/init.js"></script> 
+
+	</body>
+</html>

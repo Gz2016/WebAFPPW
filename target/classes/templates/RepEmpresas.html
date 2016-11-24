@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+<title>Lista de representantes de empresas</title>
+
+<!-- CSS  -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<!-- LOGO PRIMA AFP -->
+	
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  	<!-- TÍTULO: Lista de representantes de empresas -->
+  	
+  	<h1 class="center">Lista de representantes de empresas</h1>
+  	
+  	<!-- TABLA -->
+  	
+  	<table>
+  		
+  		<!-- CABECERAS -->
+  		<thead>
+  			<tr>
+  				<th data-field="crep_empresa">Codigo</th>
+  				<th data-field="nempresa">Nombre de la empresa</th>
+  				<th data-field="ruc">RUC</th>
+  				<th data-field="nnombres">Nombres</th>
+  				<th data-field="napellidos">Apellidos</th>
+  				<th data-field="dnacimiento">Fecha de nacimiento</th>
+  				<th data-field="dni">DNI</th>
+  			</tr>
+  		</thead>
+  		
+  		<!-- CONTENIDO -->
+  		<tbody>
+  			<tr th:each="r: ${rep_empresas}">
+  				<td th:text="${r.crep_empresa}"></td>
+  				<td th:text="${r.nempresa}"></td>
+  				<td th:text="${r.ruc}"></td>
+  				<td th:text="${r.nnombres}"></td>
+  				<td th:text="${r.napellidos}"></td>
+  				<td th:text="${r.dnacimiento}"></td>
+  				<td th:text="${r.dni}"></td>
+  				<td><a th:href="${'/verRepEmpresa' + r.crep_empresa}">Ver</a></td>
+		     	<td><a th:href="${'/editarRepEmpresa' + r.crep_empresa}">Editar</a></td>
+		     	<td><a th:href="${'/eliminarRepEmpresa' + r.crep_empresa}">Eliminar</a></td>
+  			</tr>
+  		</tbody>
+  		
+  	</table>
+  	
+  	<!--  Scripts-->
+  	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script> 
+
+</body>
+</html>

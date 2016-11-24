@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Registrar</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ <h1 class="center"><i class="large material-icons left">thumb_up</i>BIENVENIDO</h1>
+ <form>
+   <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevoafiliado'" value="Registrar Afiliado" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevacuenta'" value="Registrar Cuenta" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevoaporte'" value="Registrar Aporte" />
+				</div>
+     <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevofondo'" value="Registrar Fondo" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevooperador'" value="Registrar Operador" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/solicitud_retironuevo'" value="Registrar Solicitud" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/retironuevo'" value="Registrar Retiro" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevoperiododeaporte'" value="Registrar Periodo" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/rep_empresa'" value="Registrar Empresa" />
+				</div>
+	<div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/calculos'" value="CALCULOS" />
+				</div>
+	<div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/reportes'" value="REPORTES" />
+				</div>
+	</form>
+</body>
+</html>

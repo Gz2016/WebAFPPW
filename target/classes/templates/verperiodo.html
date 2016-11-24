@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Ver Periodo</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+<h1 class="center"><i class="large material-icons left">assignment_ind</i>Ver Periodo</h1>
+    <form class="col s12" th:object="${periododeaporte}">
+     <div class="input-field col s6">
+          Afiliado:
+          <input type="text" th:field="*{cafiliado.nnombres}" readonly="readonly"/>       
+        </div>
+        <div class="row">
+      <div class="input-field col s6">
+          Fecha de Inicio:
+          <input type="text" th:field="*{dinicio}" readonly="readonly"/>
+        </div>
+        <div class="input-field col s6">
+          Fecha Final:
+          <input type="text" th:field="*{dfin}" readonly="readonly"/>
+        </div>
+        </div>
+        <div class="input-field col s6">
+          <div class="row">
+          Tipo de Periodo:
+          <input type="text" th:field="*{ntipoperiodo}" readonly="readonly"/>
+          </div> 
+        <div class="input-field col s6">
+          Descripcion:
+          <input type="text" th:field="*{tdescripcion}" readonly="readonly"/>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s6">
+        ¿Pago?:
+        <input type="text" th:field="*{fpago}" readonly="readonly"/>
+        </div>
+        <div class="input-field col s6">
+        ¿A Tiempo?:
+        <input type="text" th:field="*{fpagoatiempo}" readonly="readonly"/>
+        </div>
+        </div>
+        <div class="row">
+				 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/periodosdeaporte'" value="Back" />
+				</div>
+				 </div>
+
+    
+    </form>
+    
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>
